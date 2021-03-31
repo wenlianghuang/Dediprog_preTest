@@ -9,35 +9,74 @@
 using namespace std;
 using namespace QuickSorting;
 int main(int argv, char *argc[]){
-    
+
+    //Question: 2
+    cout << "Question 2: " << endl;
+    wstring ques2 = L"人易科技:上 機 測 驗 - 演算法";
+    wstring_convert<codecvt_utf8<wchar_t>> utf8; 
+    string s = utf8.to_bytes(ques2);
+    //cout << s << endl;
+    //cout << s[12] << endl;
+    for(int i = 0; i < s.length();i++){
+        if(s[i] == ':'){
+            s[i] = (s[i]+65248);
+        }
+    }
+    cout << s << endl;
     //Question: 3
     cout << "Question 3: " << endl;
     int array3[10] = {0,1,2,3,4,5,6,7,8,9};
     int odd3 = 0;
     int even3 = 0;
     int array3size = sizeof(array3)/sizeof(array3[0]);
+    int subarray = array3size/2;
     int *even3array;
     int *odd3array;
+    
     if(array3size % 2 == 0){
-        even3array = new int[array3size/2];
-        odd3array = new int[array3size/2];
+        even3array = new int[subarray]{0};
+        odd3array = new int[subarray]{0};
+        //memset(even3array,0,subarray*sizeof(int));
+        //memset(odd3array,0,subarray*sizeof(int));
     }else{
-        even3array = new int[array3size/2];
-        odd3array = new int[array3size/2 + 1];
+        even3array = new int[subarray]{0};
+        odd3array = new int[subarray + 1]{0};
+        //memset(even3array,0,subarray*sizeof(int));
+        //memset(odd3array,0,(subarray+1)*sizeof(int));
     }
+    /*for(int i = 0; i < (sizeof(odd3array)/sizeof(odd3array[0]));i++){
+        cout << odd3array[i] << endl;
+    }*/
     for(int i = 0; i < array3size; i++){
         if(array3[i] % 2 == 0){
             even3 += array3[i];
-            even3array[i/2] = array3[i];
+            even3array[(int)floor(i/2)] = array3[i];
         }else{
             odd3 += array3[i];
             odd3array[(int)floor(i/2)] = array3[i];
         }
     }
-    
     cout << "3-1 Answer: 奇數值: " << odd3 << ",偶數值: " << even3 << endl;
-    cout << "3-2 Answer: 奇數值陣列[0]: " << odd3array[0] << ",偶數值陣列[0]: " << even3array[0] << endl;
-
+    //cout << "3-2 Answer: 奇數值陣列[0]: " << odd3array[0] << ",偶數值陣列[0]: " << even3array[0] << endl;
+    cout << "3-2 奇數值陣列: ";
+    if(array3size % 2 == 0){
+        for(int i = 0; i < subarray;i++){
+            cout << odd3array[i] << " ";
+        }
+    }else{
+        for(int i = 0; i < (subarray+1);i++){
+            cout << odd3array[i] << " ";
+        }
+    }
+    
+    cout <<endl;
+    cout << "3-2 偶數值陣列: ";
+    for(int i = 0; i < subarray;i++){
+        cout << even3array[i] << " ";
+    }
+    cout << endl;
+    delete []even3array;
+    delete []odd3array;
     //Question 4
     cout << "Question 4: " << endl;
     int arrSorting[] = {77,5,5,22,13,55,97,4,796,1,0,9};
@@ -77,34 +116,7 @@ int main(int argv, char *argc[]){
     vector<int> tmp;
     
     
-    /*for(int i = 0; i < size_a; i++){
-        for(int j = 0; j < size_b;j++){
-            if(a[i] == b[j]){
-                c.push_back(a[i]);
-                break;
-            }else if(a[i] !=b[j]){
-                if(j == size_b-1){
-                    d.push_back(a[i]);
-                }
-                continue;
-            }
-            
-        }    
-    }
-
-    for(int i = 0; i < size_b; i++){
-        for(int j = 0; j < size_a;j++){
-            if(b[i] == a[j]){
-                break;
-            }
-            else if(b[i] != a[j]){
-                if(j == size_a-1){
-                    tmp.push_back(b[i]);
-                }
-                continue;
-            }
-        }
-    }*/
+    
     for(int i = 0; i < areal.size(); i++){
         for(int j = 0; j < breal.size();j++){
             if(areal[i] == breal[j]){

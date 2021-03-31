@@ -7,7 +7,9 @@
 ## Answser 2
 
 ## Question 3: 資料處理-陣列
-## Answer 3: 請參考main.cxx的Question，特別注意奇數陣列和偶數陣列我都第一個index為參考顯示而已
+## Answer 3: 可以參考main.cxx的Question
+### 3-1 Answer: 奇數值: 25,偶數值: 20
+### 3-2 奇數值陣列: 1 3 5 7 9
 
 ## Question 4: 資料處理-正序
 ## Answer 4: 利用Quick Sort得到正序
